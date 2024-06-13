@@ -10,6 +10,11 @@ let when = [
   "while I was praying"
 ];
 
+function randomWord(arrayWord) {
+  let result = Math.floor(Math.random() * arrayWord.length);
+  return arrayWord[result];
+}
+
 // Function to generate a random excuse
 function generateExcuse() {
   let randomWho = who[Math.floor(Math.random() * who.length)];
@@ -17,7 +22,9 @@ function generateExcuse() {
   let randomWhat = what[Math.floor(Math.random() * what.length)];
   let randomWhen = when[Math.floor(Math.random() * when.length)];
 
-  return `Cause... ${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
+  return `Cause... ${randomWord(who)} ${randomWord(action)} ${randomWord(
+    what
+  )} ${randomWord(when)}`;
 }
 
 // Set the generated excuse to the inner HTML of the #excuse element
